@@ -19,6 +19,10 @@ const A = [1,2,3,4];
 B = A.divyaMap(m=>m*2);
 
 const C = [7,8,9,10];
+
+
+
+
 // console.log(A,B,__proto__);
 console.log(C);
 

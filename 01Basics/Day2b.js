@@ -2,12 +2,12 @@
 
 function cf(){
     
-    this.value = Math.random();
+    this.value = setInterval(Math.random,1000);
     this.getValue = function(){
         setInterval(console.log(this.value),1000);
     
 }
 
 };
-const object = new cf();
-object.getValue();
+const obj= new cf();
+obj.getValue();

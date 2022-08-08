@@ -4,11 +4,21 @@ function cf(){
 
     //initialize a variable with a random number
     this.value = Math.random();
-    let stopId = setInterval((()=>{this.value = Math.random()}),1000);
+    let stopId = setInterval((()=>{
+        this.value = Math.random();
+        callbacks.forEach((cb)=>{
+            cb(this.value);
+        });
+    }),1000);
     //on start, change the variable every one second
     this.start = function() {        
         if(stopId === null){
-            stopId = setInterval((()=>{this.value = Math.random()}),1000);
+            stopId = setInterval((()=>{
+                this.value = Math.random();
+                callbacks.forEach((cb)=>{
+                    cb(this.value);
+                });
+            }),1000);
         } else if (stopId !== null){
             return;
         }
@@ -37,9 +47,7 @@ function cf(){
     this.addEventListener = function (callbackFunction) {
     //The browser should loop through the callbacks array
         callbacks.push(callbackFunction);
-        setTimeout(()=>{
-            callbacks.forEach(()=>{callbackFunction(this.value)});
-        },1000);       
+            
 
     };
     
